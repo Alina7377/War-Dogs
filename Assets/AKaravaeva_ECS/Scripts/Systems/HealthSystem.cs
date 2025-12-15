@@ -19,6 +19,7 @@ public class HealthSystem : ComponentSystem
                 if (!(damageData.Amount == 0))
                 {
                     healthData.Health -= damageData.Amount;
+                    damageData.Amount = 0;
                     if (healthData.Health <= 0)
                     {
                         healthData.IsDie = true;
@@ -28,8 +29,7 @@ public class HealthSystem : ComponentSystem
                         if (healthData.Health >= healthData.MaxHealth)
                     {
                         healthData.Health = healthData.MaxHealth;
-                    }
-                    damageData.Amount = 0;
+                    }                    
                 }
 
             }

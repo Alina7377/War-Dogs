@@ -11,6 +11,7 @@ public class CollisionAbility : MonoBehaviour, IAbility,IConvertGameObjectToEnti
     public Collider Collider;
 
     public List<MonoBehaviour> collisionActions = new List<MonoBehaviour>();
+    [SerializeField] private LayerMask _layerMask;
     public List<IAbilityTarget> collisionAbilities = new List<IAbilityTarget>();
 
     [HideInInspector] public List<Collider> colliders = new List<Collider>();
@@ -58,7 +59,8 @@ public class CollisionAbility : MonoBehaviour, IAbility,IConvertGameObjectToEnti
                     ColliderType = ColliderType.Sphere,
                     SphereCenter = sphereCenter,
                     SphereRadius = sphereRadius,
-                    InitialTakeOOff = true
+                    InitialTakeOOff = true,
+                    LayerMask = _layerMask
                 });
                 break;
             case CapsuleCollider capsule:
@@ -69,7 +71,8 @@ public class CollisionAbility : MonoBehaviour, IAbility,IConvertGameObjectToEnti
                     CapsuleStart = capsuleStart - position,
                     CapsuleEnd = capsuleEnd - position,
                     CapsuleRadius = capsuleRadius,
-                    InitialTakeOOff = true
+                    InitialTakeOOff = true,
+                    LayerMask = _layerMask
                 });
                 break;
             case BoxCollider box:
@@ -80,7 +83,8 @@ public class CollisionAbility : MonoBehaviour, IAbility,IConvertGameObjectToEnti
                     BoxCenter = boxCenter - position,
                     BoxHalfExtents = boxHalfExtents,
                     BoxOrientation = boxOrientation,
-                    InitialTakeOOff = true
+                    InitialTakeOOff = true,
+                    LayerMask = _layerMask
                 });
                 break;
         }
@@ -99,6 +103,7 @@ public class CollisionAbility : MonoBehaviour, IAbility,IConvertGameObjectToEnti
         public float3 BoxHalfExtents;
         public quaternion BoxOrientation;
         public bool InitialTakeOOff;
+        public LayerMask LayerMask;
     }
 
     public enum ColliderType 

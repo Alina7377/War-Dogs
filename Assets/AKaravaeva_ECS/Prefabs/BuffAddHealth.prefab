@@ -130,6 +130,9 @@ MonoBehaviour:
   collisionActions:
   - {fileID: 6920426591243762148}
   - {fileID: 6920426591243762159}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 8
   colliders: []
 --- !u!114 &6920426591243762148
 MonoBehaviour:

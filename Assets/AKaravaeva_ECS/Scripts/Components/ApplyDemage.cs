@@ -25,29 +25,29 @@ public class ApplyDemage : MonoBehaviour,IAbilityTarget, IDestroyBuff
 
     public void Execute()
     {
+       
         if (_isActive)
+        {
+            _isActive = false;
+            foreach (var target in Targets)
+            {
+                if (target.TryGetComponent<CharacterHealth>(out CharacterHealth caracterHelth))
+                {
+                    var entity = caracterHelth.healthEntity;
+                    _entityManager.SetComponentData<DamageData>(entity, new DamageData { Amount = Damage });
+                    IsCanDestroy = true;
+                }
+            }            
             StartCoroutine(Attack(recharge));
+        }
        
     }
 
     private IEnumerator Attack(float time)
-    {
-
-        foreach (var target in Targets)
-        {
-            if (target.TryGetComponent<CharacterHealth>(out CharacterHealth caracterHelth))
-            {
-                var entity = caracterHelth.healthEntity;
-                _entityManager.SetComponentData<DamageData>(entity, new DamageData { Amount = Damage });
-                IsCanDestroy = true;
-            }
-        }
-
-        _isActive = false;
-        yield return new WaitForSeconds(time);
-        
+    {      
+        yield return new WaitForSeconds(time);        
         _isActive = true;
-
+        Targets.Clear();
     }
 
 

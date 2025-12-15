@@ -38,7 +38,7 @@ public class CollisionSystem : ComponentSystem
                 switch (colliderData.ColliderType) 
                 {
                     case ColliderType.Sphere:
-                        size = Physics.OverlapSphereNonAlloc(colliderData.SphereCenter, colliderData.SphereRadius, _results);
+                        size = Physics.OverlapSphereNonAlloc(colliderData.SphereCenter, colliderData.SphereRadius, _results, colliderData.LayerMask);
                         break;
                     case ColliderType.Capsule:
                         var point1 = colliderData.CapsuleStart + position;
@@ -48,10 +48,10 @@ public class CollisionSystem : ComponentSystem
                         point1 = (float3)(rotation * (point1 - center)) + center;
                         point2 = (float3)(rotation * (point2 - center)) + center;
 
-                        size = Physics.OverlapCapsuleNonAlloc(point1, point2, colliderData.CapsuleRadius, _results);
+                        size = Physics.OverlapCapsuleNonAlloc(point1, point2, colliderData.CapsuleRadius, _results, colliderData.LayerMask);
                         break;
                     case ColliderType.Box:
-                        size = Physics.OverlapBoxNonAlloc(colliderData.BoxCenter + position, colliderData.BoxHalfExtents, _results, colliderData.BoxOrientation * rotation);
+                        size = Physics.OverlapBoxNonAlloc(colliderData.BoxCenter + position, colliderData.BoxHalfExtents, _results, colliderData.BoxOrientation * rotation, colliderData.LayerMask);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
