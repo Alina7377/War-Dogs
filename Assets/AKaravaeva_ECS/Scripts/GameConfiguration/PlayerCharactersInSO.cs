@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,11 @@ public class PlayerCharactersInSO :  IGameConfig
 {
     private SOPlayerCharacteristics _soConfig;
 
+    public event Action OnUpdate;
 
     public PlayerCharactersInSO(SOPlayerCharacteristics soConfig)
     {
-        _soConfig = soConfig;
+        _soConfig = soConfig;        
     }
 
     public int GetHealth => _soConfig.startHealth;
@@ -19,5 +21,9 @@ public class PlayerCharactersInSO :  IGameConfig
     public float GetJerkSpeed => _soConfig.jerkSpeed;
 
     public float GetShootDelay => _soConfig.shootDelay;
-    
+
+    public void UpdateInfo()
+    {
+        OnUpdate?.Invoke();
+    }
 }

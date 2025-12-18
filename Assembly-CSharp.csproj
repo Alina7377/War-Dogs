@@ -103,6 +103,7 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\HealthSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\AIEvaluateSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterControlSystem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\UpdateCharacterParams.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sci-Fi Dog\ExtractMe\Documentation.txt" />
@@ -1273,6 +1274,10 @@
     <ProjectReference Include="Zenject.csproj">
       <Project>{5B9A984A-68A8-4F0D-81AC-4E8A16C29035}</Project>
       <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{C15B3706-4076-C767-FC4D-D5863A859FAF}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

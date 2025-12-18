@@ -14,6 +14,31 @@ public class CharacterHealth : MonoBehaviour, IConvertGameObjectToEntity
 
     public Entity healthEntity;
 
+    private EntityManager _selfEntityManager;
+
+    private void OnEnable()
+    {
+        _gameConfig.OnUpdate += UpdateParams;
+    }
+
+    private void OnDisable()
+    {
+        _gameConfig.OnUpdate -= UpdateParams;
+    }
+
+    private void UpdateParams()
+    {
+        if (healthEntity == null)
+        {
+            Debug.Log("еще не создан");
+            return;
+        }
+        var HealthData = _selfEntityManager.GetComponentData<HealthData>(healthEntity);
+        HealthData.MaxHealth = _gameConfig.GetHealth;
+        HealthData.Health = _gameConfig.GetHealth;
+        _selfEntityManager.SetComponentData(healthEntity, HealthData);
+    }
+
     private IEnumerator DieCharacter() 
     {
         yield return new WaitForSeconds(3);
@@ -23,10 +48,11 @@ public class CharacterHealth : MonoBehaviour, IConvertGameObjectToEntity
 
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
+        _selfEntityManager = dstManager;
         dstManager.AddComponentData(entity, new HealthData
         {
-            MaxHealth = _gameConfig.GetHealth,
-            Health = _gameConfig.GetHealth,
+            MaxHealth = _maxHealth,
+            Health = _maxHealth,
             IsDie = false
         });
         dstManager.AddComponentData(entity, new DamageData

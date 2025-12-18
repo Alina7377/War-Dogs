@@ -74,6 +74,7 @@
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\UniRx\ReadMe.txt" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\Plugins\Demigiant\DOTween\DOTween.dll" />
     <None Include="Assets\Plugins\Demigiant\DOTween\readme.txt" />
@@ -1240,6 +1241,10 @@
     <ProjectReference Include="Zenject.csproj">
       <Project>{5B9A984A-68A8-4F0D-81AC-4E8A16C29035}</Project>
       <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{C15B3706-4076-C767-FC4D-D5863A859FAF}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
