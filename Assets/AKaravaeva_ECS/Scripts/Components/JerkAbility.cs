@@ -21,9 +21,23 @@ public class JerkAbility : MonoBehaviour,IAbilityRetBool
     private Material _baseMaterial;
     private CharacterController _characterContorl;
 
-    private void Start()
+    private void OnEnable()
+    {
+        _gameConfig.OnUpdate += UpdateParams;
+    }
+
+    private void OnDisable()
+    {
+        _gameConfig.OnUpdate -= UpdateParams;
+    }
+
+    private void UpdateParams()
     {
         _speed = _gameConfig.GetJerkSpeed;
+    }
+
+    private void Start()
+    {
         _baseMaterial = _meshRender.material;
         _characterContorl = GetComponent<CharacterController>();
     }

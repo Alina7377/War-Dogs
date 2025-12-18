@@ -2,6 +2,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class UserInputData : MonoBehaviour,IConvertGameObjectToEntity
 {
@@ -12,13 +13,37 @@ public class UserInputData : MonoBehaviour,IConvertGameObjectToEntity
 
     public MonoBehaviour shootAction;
     public MonoBehaviour jerkAction;
+    private Entity _selfEntity;
+    private EntityManager _selfEntityManager;
+
+    private void OnEnable()
+    {
+        _gameConfig.OnUpdate += UpdateParams;
+    }
+
+    private void OnDisable()
+    {
+        _gameConfig.OnUpdate -= UpdateParams;
+    }
+
+    private void UpdateParams()
+    {
+        if (_selfEntity == null)
+        {
+            Debug.Log("еще не создан");
+            return;
+        }
+        _selfEntityManager.SetComponentData(_selfEntity, new ControlData { Speed = _gameConfig.GetSpeed });
+    }
 
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
+        _selfEntity = entity;
+        _selfEntityManager = dstManager;
         dstManager.AddComponentData(entity, new InputData());
         dstManager.AddComponentData(entity, new ControlData
         {
-            Speed = _gameConfig.GetSpeed
+            Speed = _speed
         });
 
         if (shootAction != null && shootAction is IAbility)
