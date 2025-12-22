@@ -9,7 +9,7 @@ public class SettingsInspector : Editor
 {
     private SerializedProperty _useSO;
     private SerializedProperty _selectSetting;
-    private SerializedProperty _index2;
+    private SerializedProperty _indexSerialized;
     private string[] _settingsPlayerCharacteristic;
     private string[] _settingsName;
     private int _index = 0;
@@ -18,8 +18,8 @@ public class SettingsInspector : Editor
     {
         _useSO = serializedObject.FindProperty("_isUseSO");
         _selectSetting = serializedObject.FindProperty("_playerCharacteristic");
-        _index2 = serializedObject.FindProperty("_selectIndex");
-        _index = _index2.intValue;
+        _indexSerialized = serializedObject.FindProperty("_selectIndex");
+        _index = _indexSerialized.intValue;
     }
 
 
@@ -42,7 +42,7 @@ public class SettingsInspector : Editor
                 _index = EditorGUILayout.Popup(_index, _settingsName);
                 EditorGUILayout.LabelField(_index.ToString());
                 _selectSetting.objectReferenceValue = AssetDatabase.LoadAssetAtPath<SOPlayerCharacteristics>(_settingsPlayerCharacteristic[_index]);
-                _index2.intValue  = _index;
+                _indexSerialized.intValue  = _index;
                 serializedObject.ApplyModifiedProperties();
             }
         }
