@@ -40,8 +40,8 @@ public class SettingsInspector : Editor
             {
                 EditorGUILayout.LabelField("Select SO property");
                 _index = EditorGUILayout.Popup(_index, _settingsName);
-                EditorGUILayout.LabelField(_index.ToString());
                 _selectSetting.objectReferenceValue = AssetDatabase.LoadAssetAtPath<SOPlayerCharacteristics>(_settingsPlayerCharacteristic[_index]);
+                EditorGUILayout.LabelField("Patch: " + _settingsPlayerCharacteristic[_index]);
                 _indexSerialized.intValue  = _index;
                 serializedObject.ApplyModifiedProperties();
             }
