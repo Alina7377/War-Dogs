@@ -24,7 +24,7 @@ public class PlayerCharactersInSO :  IGameConfig
 
     public void UpdateInfo()
     {
-        Debug.Log("Сработало из SO " + _soConfig);
+        Debug.Log("Выбрана конфигурация: " + _soConfig);
         OnUpdate?.Invoke();
     }
 }
