@@ -49,6 +49,7 @@ public class DummyPlayerCharacterisctics: IGameConfig
 
     public void UpdateInfo()
     {
+        Debug.Log("Сработало из Дамми");
         OnUpdate?.Invoke();
     }
 }

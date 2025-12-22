@@ -5,6 +5,8 @@ public class ConfigurationInstaller : MonoInstaller
 {
     [SerializeField] private bool _isUseSO;
     [SerializeField] private SOPlayerCharacteristics _playerCharacteristic;
+    [HideInInspector]
+    [SerializeField] private int _selectIndex;
 
     public override void InstallBindings()
     {

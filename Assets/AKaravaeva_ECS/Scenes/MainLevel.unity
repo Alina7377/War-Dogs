@@ -1899,8 +1899,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4b5eb65e1ab6f429c061d5a5c5ede8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isUseSO: 0
-  _playerCharacteristic: {fileID: 11400000, guid: 14fcdce25f08fa141bdc636d4b41fe17, type: 2}
+  _isUseSO: 1
+  _playerCharacteristic: {fileID: 11400000, guid: 555f73287d6bb36438d00f22e7b6107f, type: 2}
+  _selectIndex: 1
 --- !u!114 &844869453
 MonoBehaviour:
   m_ObjectHideFlags: 0
