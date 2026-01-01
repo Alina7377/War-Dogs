@@ -27,6 +27,7 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
     private IGameConfig _gameConfig;
 
     private float _shootTime = 0f;
+    private CharacterData _characterData;
     public Entity shootEntity;
 
     private void OnEnable()
@@ -58,7 +59,7 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         shootEntity = entity;
-        
+        _characterData = GetComponent<CharacterData>(); 
     }
 
     public void Execute()
@@ -73,6 +74,11 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
             var trans = _shootPoint;
             World.DefaultGameObjectInjectionWorld.EntityManager.SetComponentData(shootEntity, shootData);
             CreateBullet(shootData, trans);
+            if (_characterData != null)
+            {
+                _characterData.AddScore(5);
+            }
+            
         }
         else
         {

@@ -69,6 +69,7 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\AIBehaveSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterJerkSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterShootSystem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\CharacterData.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IBullet.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\ConfigurationInstaller.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\GameConfiguration\DummyPlayerCharacterisctics.cs" />
@@ -78,7 +79,9 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\EnemyAnimSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IDestroyBuff.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Behaviours\DetectionBehaviour.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\ILevelUp.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IAbility.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\LevelUpActions\LevelUpHealth.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Behaviours\PursueBehaviour.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\UpdateCharacterParams.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\ShootPerk.cs" />
@@ -104,6 +107,9 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\HealthSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\AIEvaluateSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterControlSystem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\GiveItemPicUp.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IItem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\StarItemAbility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sci-Fi Dog\ExtractMe\Documentation.txt" />
