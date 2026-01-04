@@ -15,11 +15,9 @@ public class GiveItemPicUp : MonoBehaviour,IAbilityTarget, IDestroyBuff, IItem
 
     public GameObject UIItem => _uiItem;
 
-    // private EntityManager _entityManager;
 
     private void Start()
     {
-       // _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         IsCanDestroy = false;
     }
 

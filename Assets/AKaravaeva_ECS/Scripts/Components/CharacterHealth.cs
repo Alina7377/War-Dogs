@@ -53,7 +53,8 @@ public class CharacterHealth : MonoBehaviour, IConvertGameObjectToEntity
         {
             MaxHealth = _maxHealth,
             Health = _maxHealth,
-            IsDie = false
+            IsDie = false,
+            DamageReduction = 0
         });
         dstManager.AddComponentData(entity, new DamageData
         {
@@ -74,6 +75,7 @@ public struct HealthData : IComponentData
     public int Health;
     public int MaxHealth;
     public bool IsDie;
+    public float DamageReduction;
 }
 
 public struct DamageData : IComponentData

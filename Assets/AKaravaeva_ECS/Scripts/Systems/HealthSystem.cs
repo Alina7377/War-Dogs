@@ -1,5 +1,6 @@
 
 using Unity.Entities;
+using UnityEngine;
 
 public class HealthSystem : ComponentSystem
 {
@@ -18,7 +19,7 @@ public class HealthSystem : ComponentSystem
             {
                 if (!(damageData.Amount == 0))
                 {
-                    healthData.Health -= damageData.Amount;
+                    healthData.Health -= Mathf.Max(1,damageData.Amount - (int)healthData.DamageReduction);
                     damageData.Amount = 0;
                     if (healthData.Health <= 0)
                     {

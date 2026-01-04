@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
@@ -45,11 +46,7 @@ public class UserInputData : MonoBehaviour,IConvertGameObjectToEntity
         {
             Speed = _speed
         });
-
-        if (shootAction != null && shootAction is IAbility)
-        {
-            dstManager.AddComponentData(entity, new ShootData { BulletType = ETypeBullet.Standart });
-        }
+        
 
         if (jerkAction != null && jerkAction is IAbilityRetBool)
         {
@@ -76,6 +73,8 @@ public struct ShootData : IComponentData
 {
     public ETypeBullet BulletType;
     public bool IsShoot;
+    public float DelayShoot;
+    public float Demadge;
 }
 
 public struct JerkData : IComponentData
@@ -87,5 +86,7 @@ public struct AnimateData : IComponentData
 {
     
 }
+
+
 
 
