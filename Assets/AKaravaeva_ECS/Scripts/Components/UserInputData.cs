@@ -74,7 +74,7 @@ public struct ShootData : IComponentData
     public ETypeBullet BulletType;
     public bool IsShoot;
     public float DelayShoot;
-    public float Demadge;
+    public float Damadge;
 }
 
 public struct JerkData : IComponentData

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1432788759223025667}
   - component: {fileID: 4536203070422546151}
   m_Layer: 5
-  m_Name: ShootDemage
+  m_Name: ShootDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

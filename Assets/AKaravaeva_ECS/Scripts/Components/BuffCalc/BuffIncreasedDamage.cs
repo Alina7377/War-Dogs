@@ -5,8 +5,8 @@ public class BuffIncreasedDamage : MonoBehaviour, ITempBuff
 {
     private Entity _entity;
     private EntityManager _entityManager;
-    private float _startAddDemage = -1;
-    private float _addDemage;
+    private float _startAddDamage = -1;
+    private float _addDamage;
 
     public void Calculate(Entity entyty, EntityManager entityManager)
     {
@@ -14,22 +14,22 @@ public class BuffIncreasedDamage : MonoBehaviour, ITempBuff
         _entityManager = entityManager;
 
         ShootData shootData = _entityManager.GetComponentData<ShootData>(_entity);
-        if (_startAddDemage == -1)
-            _startAddDemage = shootData.Demadge;
-        shootData.Demadge = _addDemage;
+        if (_startAddDamage == -1)
+            _startAddDamage = shootData.Damadge;
+        shootData.Damadge = _addDamage;
         _entityManager.SetComponentData<ShootData>(_entity, shootData);
     }
 
     public void CancelAction()
     {
         ShootData shootData = _entityManager.GetComponentData< ShootData>(_entity);
-        shootData.Demadge = _startAddDemage;
+        shootData.Damadge = _startAddDamage;
         _entityManager.SetComponentData<ShootData>(_entity, shootData);
 
     }
 
     public void SetParameter(float val)
     {
-        _addDemage = val;
+        _addDamage = val;
     }        
 }
