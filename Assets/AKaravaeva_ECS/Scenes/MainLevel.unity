@@ -4677,11 +4677,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2290736457781369170, guid: 961bd1b6b577e434ebed83d879a9f641, type: 3}
       propertyPath: m_Name
-      value: PickUpDemage
-      objectReference: {fileID: 0}
-    - target: {fileID: 2290736457781369170, guid: 961bd1b6b577e434ebed83d879a9f641, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: PickUpDamage
       objectReference: {fileID: 0}
     - target: {fileID: 8770277704891651887, guid: 961bd1b6b577e434ebed83d879a9f641, type: 3}
       propertyPath: m_RootOrder
