@@ -41,5 +41,10 @@ public class StandartBullet : MonoBehaviour, IBullet
     public float ToDamage()
     {
         return _valDamage;
-    }    
+    }
+
+    public void AddValDemage(float val)
+    {
+        _valDamage += val;
+    }
 }

@@ -55,7 +55,7 @@
     <UnityVersion>2021.3.45f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="D:\UnityProject\AKaravaeva_ECS\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.dll" />
     <Analyzer Include="D:\UnityProject\AKaravaeva_ECS\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.LambdaJobs.dll" />
     <Analyzer Include="D:\UnityProject\AKaravaeva_ECS\Library\PackageCache\com.unity.entities@0.51.1-preview.21\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.JobEntity.dll" />
@@ -66,9 +66,12 @@
   <ItemGroup>
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Bullets\StandartBullet.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Utils.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\StarItemAbility.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\AIBehaveSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterJerkSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterShootSystem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\HealthItemAbility.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\CharacterData.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IBullet.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\ConfigurationInstaller.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\GameConfiguration\DummyPlayerCharacterisctics.cs" />
@@ -78,11 +81,16 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\EnemyAnimSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IDestroyBuff.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Behaviours\DetectionBehaviour.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\ILevelUp.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IAbility.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\TempBuffSystem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\LevelUpActions\LevelUpHealth.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Behaviours\PursueBehaviour.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\UpdateCharacterParams.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\ShootPerk.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\GiveItemPicUp.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\GameConfiguration\PlayerCharactersInSO.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\IItem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Behaviours\AttackBehaviour.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\ApplyDemage.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\ShootAbility.cs" />
@@ -104,6 +112,15 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\HealthSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\AIEvaluateSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\CharacterControlSystem.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\ArmorItemAbility.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Interfaces\ITempBuff.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\SpeedItemAbility.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\BuffCalc\BuffSpeed.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\BuffCalc\BuffArmor.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\BuffCalc\BuffFastRechange.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\FastRechangeItemAbility.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\BuffCalc\BuffIncreasedDamage.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UIItems\IncreasedDamageItemAbility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Sci-Fi Dog\ExtractMe\Documentation.txt" />
@@ -459,6 +476,14 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.45f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.45f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

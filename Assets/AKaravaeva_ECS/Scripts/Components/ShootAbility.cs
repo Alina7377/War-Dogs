@@ -27,11 +27,16 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
     private IGameConfig _gameConfig;
 
     private float _shootTime = 0f;
+    private CharacterData _characterData;
     public Entity shootEntity;
 
+    private ShootData _shootData;
+
+    private EntityManager _entityManager; 
     private void OnEnable()
     {
         _gameConfig.OnUpdate += UpdateParams;
+        _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
     }
 
     private void OnDisable()
@@ -51,6 +56,11 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
             if (bulletType.type == shootData.BulletType)
             {
                 var bullet = Instantiate(bulletType.pref, spawnPoint.position, spawnPoint.rotation);
+                IBullet iBullet = bullet.GetComponent<IBullet>();
+                if (iBullet !=null)
+                {
+                    iBullet.AddValDemage(_entityManager.GetComponentData<ShootData>(shootEntity).Demadge);
+                }
             }
         }
     }
@@ -58,21 +68,32 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
         shootEntity = entity;
-        
+        _characterData = GetComponent<CharacterData>();
+        dstManager.AddComponentData(entity, new ShootData { 
+            BulletType = ETypeBullet.Standart,
+            DelayShoot = _shootDelay
+        });
+
     }
 
     public void Execute()
     {
-        if (Time.time < _shootTime + _shootDelay) return;
+        var shootData = _entityManager.GetComponentData<ShootData>(shootEntity);
+
+        if (Time.time < _shootTime + shootData.DelayShoot) return;
 
         _shootTime = Time.time;
         if (_bullets.Count > 0)
-        {
-            var shootData = World.DefaultGameObjectInjectionWorld.EntityManager.GetComponentData<ShootData>(shootEntity);
+        {            
             shootData.IsShoot = true;
             var trans = _shootPoint;
             World.DefaultGameObjectInjectionWorld.EntityManager.SetComponentData(shootEntity, shootData);
             CreateBullet(shootData, trans);
+            if (_characterData != null)
+            {
+                _characterData.AddScore(5);
+            }
+            
         }
         else
         {
