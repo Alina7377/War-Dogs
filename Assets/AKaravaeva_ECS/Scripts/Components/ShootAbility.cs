@@ -59,7 +59,7 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
                 IBullet iBullet = bullet.GetComponent<IBullet>();
                 if (iBullet !=null)
                 {
-                    iBullet.AddValDemage(_entityManager.GetComponentData<ShootData>(shootEntity).Demadge);
+                    iBullet.AddValDemage(_entityManager.GetComponentData<ShootData>(shootEntity).Damadge);
                 }
             }
         }
