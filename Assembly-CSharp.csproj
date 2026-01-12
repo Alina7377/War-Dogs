@@ -112,7 +112,7 @@
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\GameConfiguration\IGameConfig.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\BehaviourManager.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\BuffCalc\BuffSpeed.cs" />
-    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\Network\NetworkManager.cs" />
+    <Compile Include="Assets\AKaravaeva_ECS\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Systems\UserInputSystem.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\CollisionAbility.cs" />
     <Compile Include="Assets\AKaravaeva_ECS\Scripts\Components\UserInputData.cs" />

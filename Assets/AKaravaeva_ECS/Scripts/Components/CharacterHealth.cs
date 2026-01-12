@@ -1,4 +1,5 @@
 
+using Photon.Pun;
 using System.Collections;
 using Unity.Entities;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class CharacterHealth : MonoBehaviour, IConvertGameObjectToEntity
 {
     [SerializeField] private int _maxHealth = 100;
 
+    private PhotonView _photonView;
+
     [Inject]
     private IGameConfig _gameConfig;
 
@@ -18,12 +21,12 @@ public class CharacterHealth : MonoBehaviour, IConvertGameObjectToEntity
 
     private void OnEnable()
     {
-        _gameConfig.OnUpdate += UpdateParams;
+        //_gameConfig.OnUpdate += UpdateParams;
     }
 
     private void OnDisable()
     {
-        _gameConfig.OnUpdate -= UpdateParams;
+       // _gameConfig.OnUpdate -= UpdateParams;
     }
 
     private void UpdateParams()
@@ -60,7 +63,7 @@ public class CharacterHealth : MonoBehaviour, IConvertGameObjectToEntity
         {
             Amount = 0
         });
-        healthEntity = entity;
+        healthEntity = entity;      
     }
 
     public void DestroyObject()

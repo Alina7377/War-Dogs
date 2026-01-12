@@ -33,7 +33,7 @@ public class EnemyAnimSystem : ComponentSystem
                     }
                 }
                 else
-                    Debug.Log("Не назначен Аниматор или AI агент");                  
+                    Debug.Log("Не назначен Аниматор или AI агент: " + behManager.animator + " " + behManager.agent);              
                     
             });
     }

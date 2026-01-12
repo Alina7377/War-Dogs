@@ -35,13 +35,13 @@ public class ShootAbility : MonoBehaviour, IAbility, IConvertGameObjectToEntity
     private EntityManager _entityManager; 
     private void OnEnable()
     {
-        _gameConfig.OnUpdate += UpdateParams;
+       // _gameConfig.OnUpdate += UpdateParams;
         _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
     }
 
     private void OnDisable()
     {
-        _gameConfig.OnUpdate -= UpdateParams;
+       // _gameConfig.OnUpdate -= UpdateParams;
     }
 
     private void UpdateParams()

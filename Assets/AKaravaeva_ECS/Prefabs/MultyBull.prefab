@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1111894916306441135}
   - component: {fileID: 3577258490288290888}
   - component: {fileID: 4989705675986862381}
+  - component: {fileID: -646591649823609951}
   m_Layer: 6
   m_Name: MultyBull
   m_TagString: Untagged
@@ -130,6 +131,29 @@ MonoBehaviour:
   _speedFly: 10
   _timeToLive: 5
   _valDamage: 5
+  _dieEffect: {fileID: 0}
   _countStrokes: 2
   _angle: 130
   _rigit: {fileID: 3577258490288290888}
+--- !u!114 &-646591649823609951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6287820013551615676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

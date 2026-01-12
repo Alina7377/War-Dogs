@@ -19,12 +19,12 @@ public class UserInputData : MonoBehaviour,IConvertGameObjectToEntity
 
     private void OnEnable()
     {
-        _gameConfig.OnUpdate += UpdateParams;
+     //   _gameConfig.OnUpdate += UpdateParams;
     }
 
     private void OnDisable()
     {
-        _gameConfig.OnUpdate -= UpdateParams;
+     //   _gameConfig.OnUpdate -= UpdateParams;
     }
 
     private void UpdateParams()
